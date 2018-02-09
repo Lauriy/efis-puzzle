@@ -68,7 +68,7 @@ str_2 = 'YHDRCRLBUTIPUCMFGF'
 # print(''.join(decoded))
 
 # Try separating into words like this?
-# str_1_sep = 'SDZR OZDB IT GNU MYNSF'
+str_1_sep = 'SDZR OZDB IT GNU MYNSF'
 # str_2_sep = 'YHDR CRLB UT IPU CMFGF'
 
 # f_1 = ['S', 'D', 'Z', 'N', 'Y', 'O', 'B', 'U', 'T', 'F', 'I', 'M', 'R', 'G']
@@ -123,11 +123,11 @@ unique_symbols = ['S', 'D', 'Z', 'N', 'R', 'O', 'B', 'I', 'T', 'G', 'U', 'M', 'Y
 
 for i in range(0, 66666):
     d_1 = []
-    for symbol in str_1:
-        try:
+    for symbol in str_1_sep:
+        if symbol == ' ':
+            d_1.append(symbol)
+        else:
             d_1.append(estonian_alphabet[unique_symbols.index(symbol)])
-        except IndexError:
-            d_1.append(' ')
     d_1 = ''.join(d_1)
     probable_lang = detect(d_1)
     if probable_lang == 'et':
